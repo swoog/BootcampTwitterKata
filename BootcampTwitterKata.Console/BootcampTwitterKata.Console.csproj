@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{776AD767-FE9E-476A-9AB5-46AF946301C9}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BootcampTwitterKata</RootNamespace>
-    <AssemblyName>BootcampTwitterKata</AssemblyName>
+    <ProjectGuid>{D753BEB5-BBF8-42CF-91EF-9565C2481C0E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BootcampTwitterKata.Console</RootNamespace>
+    <AssemblyName>BootcampTwitterKata.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,6 +36,9 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,30 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bus.cs" />
-    <Compile Include="CountProjection.cs" />
-    <Compile Include="EventsLoader.cs" />
-    <Compile Include="Helpers\FileIO.cs" />
-    <Compile Include="IBus.cs" />
-    <Compile Include="IEventsLoader.cs" />
-    <Compile Include="IEventStore.cs" />
-    <Compile Include="IFile.cs" />
-    <Compile Include="ITwitterCommands.cs" />
-    <Compile Include="ITwitterQuery.cs" />
-    <Compile Include="LikeCountProjection.cs" />
-    <Compile Include="ListProjection.cs" />
-    <Compile Include="EventStore.cs" />
-    <Compile Include="Messages\DeleteTweet.cs" />
-    <Compile Include="Messages\InsertTweet.cs" />
-    <Compile Include="Messages\LikeTweet.cs" />
-    <Compile Include="Messages\UnLikeTweet.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tweet.cs" />
-    <Compile Include="TwitterCommands.cs" />
-    <Compile Include="TwitterQuery.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BootcampTwitterKata\BootcampTwitterKata.csproj">
+      <Project>{776ad767-fe9e-476a-9ab5-46af946301c9}</Project>
+      <Name>BootcampTwitterKata</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
