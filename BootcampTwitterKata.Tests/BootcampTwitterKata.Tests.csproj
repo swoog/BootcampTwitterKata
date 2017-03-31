@@ -137,6 +137,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Injecter.cs" />
     <Compile Include="Part_2_EventStore.cs" />
     <Compile Include="Part_3_TwitterCommands.cs" />
     <Compile Include="Part_4_CountProjection.cs" />
