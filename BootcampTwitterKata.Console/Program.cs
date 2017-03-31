@@ -133,7 +133,8 @@ namespace BootcampTwitterKata.Console
 
         private static Tweet ConsoleReadTweet()
         {
-            return tweets.FirstOrDefault(t => t.Id == ConsoleReadInt());
+            var id = ConsoleReadInt();
+            return tweets.FirstOrDefault(t => t.Id == id);
         }
 
         private static int ConsoleReadInt()
