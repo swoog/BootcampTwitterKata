@@ -33,5 +33,13 @@ namespace BootcampTwitterKata.Tests
 
             this.bus.Received(1).Publish(Arg.Is<UnLikeTweet>(i => i.Id == 1));
         }
+
+        [Test]
+        public void Should_not_publish_message_unlike_When_delete_tweet_with_like_is_false()
+        {
+            this.twitterCommands.Delete(new Tweet { Id = 1, Like = false });
+
+            this.bus.DidNotReceive().Publish(Arg.Is<UnLikeTweet>(i => i.Id == 1));
+        }
     }
 }
